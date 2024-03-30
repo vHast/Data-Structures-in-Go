@@ -35,7 +35,6 @@ func GetSum(a, b int) int {
 
 	// Find number in-between values
 	for i := smallerNumber; i <= biggerNumber; i++ {
-		// fmt.Printf("Checking number %d while biggerNumber is %d\n", i, biggerNumber)
 		arrNums += i
 	}
 
@@ -47,3 +46,15 @@ func main() {
 	fmt.Println(GetSum(1, 2))
 	fmt.Println(GetSum(5, -1))
 }
+
+/*
+Interesting solution
+
+func GetSum(a, b int) int {
+	if a > b {
+		a, b = b, a
+	}
+	return (a + b) * (b - a + 1) / 2
+}
+
+*/
