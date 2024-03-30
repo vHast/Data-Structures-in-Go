@@ -1,0 +1,22 @@
+/*
+Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+
+All inputs will be valid.
+
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func Digits(n uint64) int {
+	value := fmt.Sprint(n)
+
+	return len(value)
+}
+
+func main() {
+	fmt.Println(Digits(150))
+}
