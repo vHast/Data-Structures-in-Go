@@ -15,12 +15,13 @@ Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 )
 
-func groupAnagrams(strs []string) [][]string {
-	var output [][]string
+func groupAnagrams(strs []string) []string {
+	// var output [][]string
 	var sortedStrings []string
 
 	for i := 0; len(strs) > i; i++ {
@@ -28,7 +29,7 @@ func groupAnagrams(strs []string) [][]string {
 		sortedStrings = append(sortedStrings, outputString)
 	}
 
-	return output
+	return sortedStrings
 }
 
 func splitter(str string) string {
@@ -38,5 +39,5 @@ func splitter(str string) string {
 }
 
 func main() {
-	groupAnagrams([]string{"eat", "tea", "tan", "ate", "nat", "bat"})
+	fmt.Println(groupAnagrams([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
 }
