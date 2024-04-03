@@ -17,25 +17,30 @@ package main
 import (
 	"fmt"
 	"sort"
-	"strings"
 )
 
-func groupAnagrams(strs []string) []string {
-	// var output [][]string
-	var sortedStrings []string
+func groupAnagrams(strs []string) [][]string {
+	anagramMap := make(map[string][]string)
 
-	for i := 0; len(strs) > i; i++ {
-		outputString := splitter(strs[i])
-		sortedStrings = append(sortedStrings, outputString)
+	for _, str := range strs {
+		sorted := sortWord(str)
+		anagramMap[sorted] = append(anagramMap[sorted], str)
 	}
 
-	return sortedStrings
+	var groupedAnagrams [][]string
+	for _, anagrams := range anagramMap {
+		groupedAnagrams = append(groupedAnagrams, anagrams)
+	}
+
+	return groupedAnagrams
 }
 
-func splitter(str string) string {
-	splitStr := strings.Split(str, "")
-	sort.Strings(splitStr)
-	return strings.Join(splitStr, "")
+func sortWord(str string) string {
+	runes := []rune(str)
+	sort.Slice(runes, func(i, j int) bool {
+		return runes[i] < runes[j]
+	})
+	return string(runes)
 }
 
 func main() {
